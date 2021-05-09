@@ -1,6 +1,6 @@
-# feather-shopping-list
+# Rapid Prototyping with FeathersJS and Docker
 
-> 
+This is a companion repository for the guide that is available here : https://randomcoding.com/2021/05/09/rapid-prototyping-with-feathersjs-and-docker/
 
 ## About
 
@@ -17,29 +17,29 @@ Getting up and running is as easy as 1, 2, 3.
     cd path/to/feather-shopping-list
     npm install
     ```
-
-3. Start your app
+3. Start the database server
+   ```
+   npm run db-init
+   npm run db-start
+   ```
+4. Create a database named `shopping_list_db1` and then run the following code
+    ```
+    DROP TABLE IF EXISTS items;
+    CREATE TABLE `items` (
+      `id` INT NOT NULL AUTO_INCREMENT,
+      `item` VARCHAR(255) NOT NULL,
+      `quantity` VARCHAR(30) NOT NULL,
+      `createdAt` DATETIME NOT NULL,
+      `updatedAt` DATETIME NOT NULL,
+      PRIMARY KEY (`id`)
+    )
+    COLLATE='utf8mb4_0900_ai_ci'
+    ENGINE=InnoDB;
+    ```
+ 
+6. Start your app
 
     ```
     npm start
     ```
 
-## Testing
-
-Simply run `npm test` and all your tests in the `test/` directory will be run.
-
-## Scaffolding
-
-Feathers has a powerful command line interface. Here are a few things it can do:
-
-```
-$ npm install -g @feathersjs/cli          # Install Feathers CLI
-
-$ feathers generate service               # Generate a new Service
-$ feathers generate hook                  # Generate a new Hook
-$ feathers help                           # Show all commands
-```
-
-## Help
-
-For more information on all the things you can do with Feathers visit [docs.feathersjs.com](http://docs.feathersjs.com).
