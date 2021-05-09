@@ -31,7 +31,7 @@
     "mocha": "mocha test/ --recursive --exit",
     "db-init": "docker run --name mysql-server -e MYSQL_ROOT_PASSWORD=password -d -p 3306:3306 mysql:latest",
     "db-start": "docker start mysql-server",
-    "db-stop": "docker start mysql-server"
+    "db-stop": "docker stop mysql-server"
   },
   "standard": {
     "env": [
